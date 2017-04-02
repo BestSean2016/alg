@@ -2,5 +2,6 @@ cmake_minimum_required(VERSION 3.6)
 project(pccb)
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_PROBLEM_1.6.1-1 main1.6.1-1.cpp main1.6.1-1.cpp main1.6.2-1.cpp.cpp)
-add_executable(p161-1 ${SOURCE_PROBLEM_1.6.1-1})
+add_executable(p161-1 main1.6.1-1.cpp)
+add_executable(p162-1 main1.6.2-1.cpp)
+add_executable(p163-2 main1.6.3-2.cpp)

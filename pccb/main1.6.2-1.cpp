@@ -20,3 +20,41 @@ Sample Output
 4 8
 38 207 */
 
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <cassert>
+
+void solve(int length, std::vector<int>& N, int& max_time, int& min_time) {
+    max_time = std::numeric_limits<int>::min(),
+    min_time = std::numeric_limits<int>::max();
+    for (int pos : N) {
+        max_time = std::max(max_time, std::max(pos, length - pos));
+        min_time = std::min(min_time, std::min(pos, length - pos));
+    }
+}
+
+
+void solve2(int length, std::vector<int>& N, int& max_time, int& min_time) {
+    max_time = std::numeric_limits<int>::min();
+    for (int pos : N)
+        max_time = std::max(max_time, std::max(pos, length - pos));
+    min_time = length - max_time;
+}
+
+int main() {
+    std::vector<int> N({2, 6, 7});
+    int max_time, min_time;
+    solve(10, N, max_time, min_time);
+    assert(max_time == 8 && min_time == 2);
+    solve2(10, N, max_time, min_time);
+    assert(max_time == 8 && min_time == 2);
+
+    N.clear();
+    N.assign({11, 12, 7, 13, 176, 23, 191});
+    solve(214, N, max_time, min_time);
+    assert(max_time == 207 && min_time == 7);
+    solve2(214, N, max_time, min_time);
+    assert(max_time == 207 && min_time == 7);
+    return 0;
+}

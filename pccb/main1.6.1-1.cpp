@@ -1,5 +1,5 @@
 //
-// Created by sean on 4/2/17.
+// Problem in p-1.6.1-0.png
 //
 
 #include <iostream>
